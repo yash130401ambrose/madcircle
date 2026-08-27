@@ -8,16 +8,26 @@ import {
 import { getAppUrl } from "./lib/app-url.server";
 import { SupabaseSessionStorage } from "./lib/supabase-session-storage.server";
 
+function cleanEnv(value: string | undefined): string {
+  if (!value) return "";
+  return value.trim().replace(/^["']|["']$/g, "");
+}
+
+const apiKey = cleanEnv(process.env.SHOPIFY_API_KEY);
+const apiSecretKey = cleanEnv(process.env.SHOPIFY_API_SECRET);
+const scopes = cleanEnv(
+  process.env.SCOPES ||
+    "read_orders,write_orders,read_customers,write_customers,write_discounts,read_products",
+)
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 const shopify = shopifyApp({
-  apiKey: process.env.SHOPIFY_API_KEY,
-  apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
+  apiKey,
+  apiSecretKey,
   apiVersion: ApiVersion.January25,
-  scopes: (
-    process.env.SCOPES ||
-    "read_orders,write_orders,read_customers,write_customers,write_discounts,read_products"
-  )
-    .split(",")
-    .filter(Boolean),
+  scopes,
   appUrl: getAppUrl(),
   authPathPrefix: "/auth",
   sessionStorage: new SupabaseSessionStorage(),
@@ -26,8 +36,8 @@ const shopify = shopifyApp({
     unstable_newEmbeddedAuthStrategy: true,
     expiringOfflineAccessTokens: true,
   },
-  ...(process.env.SHOP_CUSTOM_DOMAIN
-    ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] }
+  ...(cleanEnv(process.env.SHOP_CUSTOM_DOMAIN)
+    ? { customShopDomains: [cleanEnv(process.env.SHOP_CUSTOM_DOMAIN)] }
     : {}),
 });
 

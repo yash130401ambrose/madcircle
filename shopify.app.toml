@@ -30,4 +30,5 @@ api_version = "2026-10"
 redirect_urls = [ "https://madcircle.vercel.app/auth/callback" ]
 
 [build]
-automatically_update_urls_on_dev = true
+# Keep Partners URLs on Vercel. Turn this on only for temporary tunnel debugging.
+automatically_update_urls_on_dev = false
