@@ -1,8 +1,8 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "3d070c5df1bb4ed86bdcbe7eae32b5fc"
-# CLI overwrites this with the Cloudflare tunnel during `shopify app dev`
-application_url = "https://example.com"
+# Production host (Vercel). `shopify app dev` may overwrite locally when automatically_update_urls_on_dev is true.
+application_url = "https://madcircle.vercel.app"
 embedded = true
 name = "MadCircle"
 
@@ -27,7 +27,7 @@ api_version = "2026-10"
 
 [auth]
 # Must be /auth/callback for this Remix app (NOT /api/auth)
-redirect_urls = [ "https://example.com/auth/callback" ]
+redirect_urls = [ "https://madcircle.vercel.app/auth/callback" ]
 
 [build]
 automatically_update_urls_on_dev = true
