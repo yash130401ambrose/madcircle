@@ -38,7 +38,7 @@
     "@shopify/shopify-api": "^14.0.0",
     "@shopify/shopify-app-remix": "^4.1.0",
     "@shopify/shopify-app-session-storage": "^6.0.0",
-    "@shopify/shopify-app-session-storage-prisma": "^8.0.0",
+    "@shopify/shopify-app-session-storage-prisma": "^9.0.1",
     "@supabase/supabase-js": "^2.112.3",
     "@vercel/remix": "^2.16.7",
     "bcryptjs": "^2.4.3",
