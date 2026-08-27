@@ -1,0 +1,61 @@
+.index {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+  color: #0a0a0b;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.content {
+  max-width: 32rem;
+}
+
+.heading {
+  font-size: 2rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.text {
+  color: #6e6e73;
+  line-height: 1.5;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: #6e6e73;
+}
+
+.input {
+  border: 0;
+  border-radius: 12px;
+  background: #f2f2f7;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  color: #0a0a0b;
+}
+
+.button {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  background: #0a0a0b;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
